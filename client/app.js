@@ -26,6 +26,11 @@ $(document).ready(function() {
 		return false;
 	});
 
+	$("input[value=Leave]").click(function() {
+		$("#chat-div").hide();
+		socket.emit("message", name + " has left the chat");
+	});
+
 	socket.on("login", function(name) {
 		if(messages.length == 0) {
 			socket.emit("load-messages-request");
