@@ -13,6 +13,14 @@ io.on("connection", function(socket) {
 		io.emit("login", name);
 	});
 
+	socket.on("load-messages-request", function() {
+		io.emit("load-messages-request");
+	});
+
+	socket.on("load-messages", function(prevMsgs) {
+		io.emit("load-messages", prevMsgs);
+	});
+
 	socket.on("message", function(msg) {
 		io.emit("message", msg);
 	});
