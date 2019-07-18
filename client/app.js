@@ -27,8 +27,6 @@ $(document).ready(function() {
 	});
 
 	socket.on("login", function(name) {
-		//socket.emit("message", name + " has entered the chat");
-
 		if(messages.length == 0) {
 			socket.emit("load-messages-request");
 		}
@@ -37,6 +35,8 @@ $(document).ready(function() {
 	socket.on("load-messages-request", function() {
 		if(messages.length > 0) {
 			socket.emit("load-messages", messages);
+		} else {
+			socket.emit("message", name + " has entered the chat");
 		}
 	});
 
