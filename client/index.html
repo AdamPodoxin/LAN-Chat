@@ -11,10 +11,18 @@
 </head>
 <body>
 	<center>
-		<div id="chat">
+		<div id="login-div">
+			<form id="login">
+				<input type="text" id="name" placeholder="Name">
+				<input type="submit" value="Login">
+			</form>
+		</div>
+
+		<div id="chat-div">
 			<form id="send-message">
-				<input type="text" id="message">
+				<input type="text" id="message" placeholder="Message">
 				<input type="submit" value="Send">
+				<input type="button" value="Leave">
 			</form>
 
 			<ol id="chat-list"></ol>
