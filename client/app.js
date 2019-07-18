@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$("#login").hide();
 		$("#chat-div").show();
 
-		socket.emit("message", name + " has entered the chat");
+		socket.emit("login", name);
 
 		return false;
 	});
@@ -23,6 +23,10 @@ $(document).ready(function() {
 		$("#message").val("");
 
 		return false;
+	});
+
+	socket.on("login", function(name) {
+		socket.emit("message", name + " has entered the chat");
 	});
 
 	socket.on("message", function(msg) {
